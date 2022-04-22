@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+[dev-packages]
+boto3 = "*"
+black = "*"
+flake8 = "*"
+isort = "*"
+mypy = "*"
+coverage = "*"
+cfn-lint = "*"
+aws-sam-translator = "*"
+aws-lambda-typing = "*"
+types-requests = "*"
+moto = "*"
+boto3-stubs = {extras = ["essential"], version = "*"}
+pytest = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+test = "pytest --junitxml=test-results.xml --cov=. --cov-report=xml"
+lint = "flake8 --show-source ."
+mypy = "mypy ."
+cfn-lint = "cfn-lint template.yaml"
