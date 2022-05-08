@@ -1,9 +1,21 @@
 import json
+import logging
+
+import boto3
+from aws_lambda_typing.context import Context
+from aws_lambda_typing.events import APIGatewayProxyEventV2
+from aws_lambda_typing.responses import APIGatewayProxyResponseV2
 
 # import requests
 
+logger = logging.getLogger("hello world")
+logger.setLevel("INFO")
 
-def lambda_handler(event, context):
+dynamodb = boto3.resource("dynamodb")
+table = dynamodb.Table("hoge")
+
+
+def lambda_handler(event: APIGatewayProxyEventV2, context: Context) -> APIGatewayProxyResponseV2:
     """Sample pure Lambda function
 
     Parameters
@@ -24,6 +36,8 @@ def lambda_handler(event, context):
 
         Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
     """
+    table.put_item(Item={"id": "aaaaa", "item": event["body"]})
+    logger.info("successfully put item")
 
     # try:
     #     ip = requests.get("http://checkip.amazonaws.com/")
@@ -35,8 +49,10 @@ def lambda_handler(event, context):
 
     return {
         "statusCode": 200,
-        "body": json.dumps({
-            "message": "hello world",
-            # "location": ip.text.replace("\n", "")
-        }),
+        "body": json.dumps(
+            {
+                "message": "hello world",
+                # "location": ip.text.replace("\n", "")
+            }
+        ),
     }

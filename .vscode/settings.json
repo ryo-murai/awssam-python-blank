@@ -9,6 +9,9 @@
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
+    "[python]": {
+        "editor.tabSize": 4
+    },
     "python.linting.lintOnSave": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
