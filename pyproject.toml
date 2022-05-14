@@ -1,0 +1,27 @@
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+warn_unreachable = true
+strict_optional = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+show_none_errors = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_unused_ignores = false
+pretty = true
+exclude = [ "tests/*", "^test_*\\.py$",]
+
+[tool.pytest.ini_options]
+env = [ "AWS_ACCESS_KEY_ID=testing", "AWS_SECRET_ACCESS_KEY=testing", "AWS_SECURITY_TOKEN=testing", "AWS_SESSION_TOKEN=testing", "AWS_DEFAULT_REGION=ap-northeast-1",]
