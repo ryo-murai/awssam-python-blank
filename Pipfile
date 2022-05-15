@@ -20,9 +20,8 @@ moto = "*"
 boto3-stubs = {extras = ["essential"], version = "*"}
 pytest = "*"
 pytest-cov = "*"
-pytest-dotenv = "*"
-nitpick = "*"
 pytest-env = "*"
+nitpick = "*"
 
 [requires]
 python_version = "3.9"
