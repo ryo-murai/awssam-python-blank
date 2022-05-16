@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 
 import boto3
 from aws_lambda_typing.context import Context
@@ -8,11 +9,11 @@ from aws_lambda_typing.responses import APIGatewayProxyResponseV2
 
 # import requests
 
-logger = logging.getLogger("hello world")
-logger.setLevel("INFO")
+logger = logging.getLogger(__name__)
+logger.setLevel(os.environ["LOG_LEVEL"])
 
 dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table("hoge")
+table = dynamodb.Table(os.environ["DYNAMODB_TABLE"])
 
 
 def lambda_handler(event: APIGatewayProxyEventV2, context: Context) -> APIGatewayProxyResponseV2:
