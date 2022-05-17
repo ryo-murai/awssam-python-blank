@@ -2,4 +2,6 @@
 exclude = .git,__pycache__,docs/source/conf.py,.venv,old,build,dist,.aws-sam
 max-line-length = 120
 max-complexity = 20
-doctests = True
+#doctests = True
+ignore = D400,D415
+convention = google

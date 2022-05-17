@@ -37,7 +37,7 @@
     "coverage-gutters.showGutterCoverage": true,
     "coverage-gutters.showLineCoverage": true,
     "coverage-gutters.showRulerCoverage": true,
-    "cfnLint.path": ".venv/Scripts/cfn-lint",
+    "cfnLint.path": ".venv/bin/cfn-lint",
     "yaml.customTags": [
         "!And",
         "!And sequence",
@@ -67,4 +67,5 @@
         "!Split",
         "!Split sequence"
     ],
+    "autoDocstring.docstringFormat": "google",
 }
